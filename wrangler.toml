@@ -7,8 +7,3 @@ compatibility_date = "2024-09-01"
 # Configuración específica para Cloudflare Pages
 pages_build_output_dir = "ai-gym-frontend/ai-gym-frontend/dist"
 
-# Configuración de Pages con custom build
-[pages]
-build_command = "cd ai-gym-frontend/ai-gym-frontend && npm install && npm run build"
-build_output_dir = "ai-gym-frontend/ai-gym-frontend/dist"
-
