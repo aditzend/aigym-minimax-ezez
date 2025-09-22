@@ -19,7 +19,7 @@ import {
   CheckCircle,
   Eye
 } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import { supabase } from '@/lib/supabase';
 import CSVUploadModal from '../components/modals/CSVUploadModal';
 import CreateUserModal from '../components/modals/CreateUserModal';
 

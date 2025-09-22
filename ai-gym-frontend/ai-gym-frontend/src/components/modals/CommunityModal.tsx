@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { X, Upload, Palette, Check, AlertTriangle } from 'lucide-react';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/lib/supabase';
 
 interface CommunityModalProps {
   isOpen: boolean;

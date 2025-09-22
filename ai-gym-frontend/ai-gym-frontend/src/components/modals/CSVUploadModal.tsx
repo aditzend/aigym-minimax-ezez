@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useRef } from 'react';
 import { Upload, Download, AlertTriangle, CheckCircle, X, FileText } from 'lucide-react';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/lib/supabase';
 
 interface CSVUploadModalProps {
   isOpen: boolean;

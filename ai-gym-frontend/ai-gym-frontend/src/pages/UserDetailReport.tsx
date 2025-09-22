@@ -15,7 +15,7 @@ import {
   PlayCircle,
   FileText
 } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import { supabase } from '@/lib/supabase';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 
 type TabType = 'overview' | 'content' | 'courses';

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, User, Mail, Tag, AlertTriangle, CheckCircle } from 'lucide-react';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/lib/supabase';
 
 interface CreateUserModalProps {
   isOpen: boolean;

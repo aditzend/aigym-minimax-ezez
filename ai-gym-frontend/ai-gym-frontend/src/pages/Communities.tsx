@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Search, Filter, Archive, MoreHorizontal, Users, Calendar, CheckCircle, Eye, Edit, Trash2 } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import { supabase } from '@/lib/supabase';
 import CommunityModal from '../components/modals/CommunityModal';
 import { useNavigate } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
