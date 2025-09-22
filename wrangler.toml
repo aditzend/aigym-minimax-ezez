@@ -1,57 +1,9 @@
 # AI GYM Frontend - Cloudflare Pages Configuration
 # Para desplegar aplicación React con Vite en Cloudflare Pages
 
-name = "aigym-frontend"
+name = "aigym-minimax-ezez"
 compatibility_date = "2024-09-01"
-compatibility_flags = ["nodejs_compat"]
 
-[env.production]
-name = "aigym-frontend"
-route = { pattern = "aigym.your-domain.com", zone_name = "your-domain.com" }
+# Configuración específica para Cloudflare Pages
+pages_build_output_dir = "ai-gym-frontend/ai-gym-frontend/dist"
 
-[env.staging]
-name = "aigym-frontend-staging"
-route = { pattern = "staging.aigym.your-domain.com", zone_name = "your-domain.com" }
-
-# Configuración para Cloudflare Pages
-[pages]
-# Comando de build que se ejecutará en Cloudflare
-build_command = "pnpm install && pnpm run build"
-
-# Directorio donde se encuentran los archivos compilados
-build_output_dir = "ai-gym-frontend/ai-gym-frontend/dist"
-
-# Directorio raíz del proyecto
-root_dir = "."
-
-# Variables de entorno para el build
-[pages.env_vars]
-# Estas variables se pueden configurar en el dashboard de Cloudflare
-# VITE_SUPABASE_URL = "https://your-project.supabase.co"
-# VITE_SUPABASE_ANON_KEY = "your-anon-key"
-
-# Configuración de redirects y headers para React Router
-[[pages.redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
-
-# Headers de seguridad
-[[pages.headers]]
-for = "/*"
-[pages.headers.values]
-X-Frame-Options = "SAMEORIGIN"
-X-XSS-Protection = "1; mode=block"
-X-Content-Type-Options = "nosniff"
-Referrer-Policy = "no-referrer-when-downgrade"
-Content-Security-Policy = "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'"
-
-# Cache para assets estáticos
-[[pages.headers]]
-for = "/assets/*"
-[pages.headers.values]
-Cache-Control = "public, max-age=31536000, immutable"
-
-# Configuración para custom domains (opcional)
-# [custom_domains]
-# aigym.your-domain.com = true
