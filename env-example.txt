@@ -1,0 +1,55 @@
+# Variables de entorno para AI Gym Frontend
+# Copia este archivo a .env.local para desarrollo local
+# Para Docker/Kubernetes, configura estas variables en tu sistema
+
+# ===========================================
+# VARIABLES OBLIGATORIAS
+# ===========================================
+
+# Supabase Configuration
+VITE_SUPABASE_URL=https://tu-proyecto.supabase.co
+VITE_SUPABASE_ANON_KEY=tu_clave_anonima_publica_aqui
+
+# ===========================================
+# VARIABLES DE BUILD
+# ===========================================
+
+# Modo de construcción (solo para build time)
+BUILD_MODE=prod
+
+# Entorno de Node.js
+NODE_ENV=production
+
+# ===========================================
+# VARIABLES OPCIONALES (Funcionalidades avanzadas)
+# ===========================================
+
+# Version de la aplicación
+REACT_APP_VERSION=1.0.0
+
+# Monitoring y Observabilidad
+REACT_APP_JAEGER_ENDPOINT=http://jaeger-collector:14268/api/traces
+
+# Error Reporting
+REACT_APP_ERROR_REPORTING_ENDPOINT=https://tu-endpoint-de-errores.com/api/errors
+
+# ===========================================
+# INSTRUCCIONES
+# ===========================================
+
+# 1. Para desarrollo local:
+#    - Copia este contenido a .env.local
+#    - Reemplaza los valores con tus claves reales
+
+# 2. Para Docker:
+#    - Configura estas variables en tu sistema host
+#    - O pásalas directamente en docker run
+
+# 3. Para Kubernetes:
+#    - Usa ConfigMaps para variables no sensibles
+#    - Usa Secrets para claves sensibles (base64 encoded)
+
+# IMPORTANTE:
+# - Las variables VITE_* son públicas y visibles en el navegador
+# - NUNCA pongas claves secretas o service keys en VITE_*
+# - Las claves service role solo se usan en las funciones de Supabase

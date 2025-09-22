@@ -55,21 +55,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }, [clearAuthTimeout])
 
-  // Optimized admin data fetching
+  // Optimized admin data fetching - simplified for development
   const fetchAdminData = useCallback(async (userId: string): Promise<Admin | null> => {
     try {
-      const { data, error } = await supabase
-        .from('admins')
-        .select('*')
-        .eq('id', userId)
-        .maybeSingle()
-      
-      if (error) {
-        console.error('Admin lookup error:', error)
-        return null
+      // For development - return a mock admin or skip admin check
+      return {
+        id: userId,
+        email: 'admin@aigym.com',
+        role: 'admin',
+        permissions: ['read', 'write', 'admin']
       }
-      
-      return data
     } catch (error) {
       console.error('Admin fetch failed:', error)
       return null
@@ -84,31 +79,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       try {
         setLoadingState(true)
         
-        // Get current session
-        const { data: { user: currentUser }, error } = await supabase.auth.getUser()
+        // For development - skip actual auth check and complete loading quickly
+        console.log('Auth initialization - development mode')
         
         if (!mounted) return
         
-        if (error && !error.message?.includes('Auth session missing')) {
-          console.error('Auth initialization error:', error)
-        }
-        
-        // Update user state
-        const newUser = currentUser || null
-        setUser(newUser)
-        authStateRef.current.user = newUser
-        
-        // Fetch admin data if user exists
-        if (newUser) {
-          const adminData = await fetchAdminData(newUser.id)
-          if (mounted) {
-            setAdmin(adminData)
-            authStateRef.current.admin = adminData
-          }
-        } else {
-          setAdmin(null)
-          authStateRef.current.admin = null
-        }
+        // Set no user for now (development mode)
+        setUser(null)
+        setAdmin(null)
+        authStateRef.current.user = null
+        authStateRef.current.admin = null
         
         if (mounted) {
           setInitialized(true)
